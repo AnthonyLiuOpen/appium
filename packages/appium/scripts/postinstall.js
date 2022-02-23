@@ -12,7 +12,7 @@ async function main () {
 
   let extension;
   try {
-    extension = require('../build/lib/cli/extension');
+    extension = require('../build/cli/extension');
   } catch (e) {
     throw new Error(`Could not load extension CLI file; has the project been transpiled? ` +
                     `(${e.message})`);

@@ -30,7 +30,7 @@ describe('CLI behavior controlled by schema', function () {
       await installLocalExtension(
         appiumHome,
         'driver',
-        path.dirname(resolveFixture('cli/test-driver/package.json'))
+        path.dirname(resolveFixture('test-driver/package.json'))
       );
       help = await runAppium(appiumHome, ['server', '--help']);
     });

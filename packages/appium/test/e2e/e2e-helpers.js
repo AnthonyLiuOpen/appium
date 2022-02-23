@@ -14,7 +14,7 @@ import { PACKAGE_ROOT } from '../helpers';
  *
  * This means **you must build `appium` before running tests calling this code.**
  */
-export const EXECUTABLE = path.join(PACKAGE_ROOT, 'build', 'lib', 'main.js');
+export const EXECUTABLE = path.join(PACKAGE_ROOT, 'build', 'main.js');
 
 /**
  * Runs the `appium` executable with the given args.
