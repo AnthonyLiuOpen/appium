@@ -21,6 +21,7 @@ module.exports = (wallaby) => {
       './packages/*/test/**/fixtures/**/*',
       './packages/*/test/**/mocks.js',
       './packages/*/test/helpers.js',
+      './babel.config.json',
       // below this are fixtures
       {
         binary: true,
@@ -42,10 +43,6 @@ module.exports = (wallaby) => {
       {
         instrument: false,
         pattern: './test/setup.js'
-      },
-      {
-        instrument: false,
-        pattern: './babel.config.json'
       }
     ],
     testFramework: 'mocha',
