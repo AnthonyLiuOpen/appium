@@ -5,7 +5,7 @@ import {
 import { BASE_CAPS, W3C_CAPS } from '../helpers';
 import _ from 'lodash';
 import { stripColors } from '@dabh/colors';
-import sinon from 'sinon';
+import { createSandbox } from 'sinon';
 import logger from '../../lib/logger';
 
 describe('utils', function () {
@@ -219,7 +219,7 @@ describe('utils', function () {
      */
     let sandbox;
     beforeEach(function () {
-      sandbox = sinon.createSandbox();
+      sandbox = createSandbox();
       sandbox.spy(logger, 'info');
     });
 

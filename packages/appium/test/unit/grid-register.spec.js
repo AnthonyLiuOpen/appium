@@ -1,13 +1,13 @@
 // @ts-check
 
-import sinon from 'sinon';
+import { createSandbox } from 'sinon';
 import { rewiremock } from '../helpers';
 
 describe('grid-register', function () {
   let sandbox;
 
   beforeEach(function () {
-    sandbox = sinon.createSandbox();
+    sandbox = createSandbox();
   });
 
   afterEach(function () {
@@ -15,7 +15,7 @@ describe('grid-register', function () {
   });
 
   describe('registerNode()', function () {
-    /** @type {import('../lib/grid-register').default} */
+    /** @type {import('../../lib/grid-register').default} */
     let registerNode;
     let mocks;
 

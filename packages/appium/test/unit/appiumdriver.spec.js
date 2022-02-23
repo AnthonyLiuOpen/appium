@@ -4,7 +4,7 @@ import { BaseDriver } from '@appium/base-driver';
 import { FakeDriver } from '@appium/fake-driver';
 import { sleep } from 'asyncbox';
 import _ from 'lodash';
-import sinon from 'sinon';
+import { createSandbox } from 'sinon';
 import { AppiumDriver } from '../../lib/appium';
 import { finalizeSchema, registerSchema, resetSchema } from '../../lib/schema/schema';
 import { insertAppiumPrefixes, removeAppiumPrefixes } from '../../lib/utils';
@@ -13,22 +13,32 @@ import { BASE_CAPS, W3C_CAPS, W3C_PREFIXED_CAPS } from '../helpers';
 const SESSION_ID = 1;
 
 describe('AppiumDriver', function () {
+  /** @type {sinon.SinonSandbox} */
+  let sandbox;
+
   beforeEach(function () {
+    sandbox = createSandbox();
     resetSchema();
     finalizeSchema();
   });
+
+  afterEach(function () {
+    sandbox.restore();
+  });
+
   describe('instance method', function () {
     function getDriverAndFakeDriver (appiumArgs = {}, DriverClass = FakeDriver) {
       const appium = new AppiumDriver(appiumArgs);
       const fakeDriver = new DriverClass();
-      const mockFakeDriver = sinon.mock(fakeDriver);
+      const mockFakeDriver = sandbox.mock(fakeDriver);
       mockFakeDriver._fakeDriver = fakeDriver;
       const mockedDriverReturnerClass = function Driver () {
         return fakeDriver;
       };
 
+      // @ts-expect-error
       appium.driverConfig = {
-        findMatchingDriver: sinon.stub().returns({
+        findMatchingDriver: sandbox.stub().returns({
           driver: mockedDriverReturnerClass,
           version: '1.2.3',
           driverName: 'fake',
@@ -86,7 +96,7 @@ describe('AppiumDriver', function () {
           new FakeDriver(),
           new FakeDriver(),
         ];
-        let mockFakeDrivers = _.map(fakeDrivers, (fd) => sinon.mock(fd));
+        let mockFakeDrivers = _.map(fakeDrivers, (fd) => sandbox.mock(fd));
         mockFakeDrivers[0].expects('deleteSession')
           .once();
         mockFakeDrivers[1].expects('deleteSession')

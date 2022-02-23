@@ -1,7 +1,7 @@
 // @ts-check
 
 import fs from 'fs';
-import sinon from 'sinon';
+import { createSandbox } from 'sinon';
 import YAML from 'yaml';
 import * as schema from '../../lib/schema/schema';
 import { resolveFixture, rewiremock } from '../helpers';
@@ -63,7 +63,7 @@ describe('config-file', function () {
   });
 
   beforeEach(function () {
-    sandbox = sinon.createSandbox();
+    sandbox = createSandbox();
 
     // we have to manually type this (and `search()`) because we'd only get the real type
     // when stubbing an object prop; e.g., `stub(lilconfig, 'load')`

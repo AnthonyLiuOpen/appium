@@ -2,18 +2,18 @@
 
 // transpile:mocha
 import _ from 'lodash';
-import sinon from 'sinon';
+import { createSandbox } from 'sinon';
 import { getParser } from '../../lib/cli/parser';
 import { checkNodeOk, getBuildInfo, getNonDefaultServerArgs, showBuildInfo, showConfig, validateTmpDir, warnNodeDeprecations } from '../../lib/config';
 import logger from '../../lib/logger';
 import { getDefaultsForSchema, resetSchema, registerSchema, finalizeSchema } from '../../lib/schema/schema';
 
 describe('Config', function () {
-  /** @type {import('sinon').SinonSandbox} */
+  /** @type {sinon.SinonSandbox} */
   let sandbox;
 
   beforeEach(function () {
-    sandbox = sinon.createSandbox();
+    sandbox = createSandbox();
   });
 
   afterEach(function () {
@@ -21,9 +21,9 @@ describe('Config', function () {
   });
 
   describe('Appium config', function () {
-    /** @type {import('sinon').SinonSpy<[message?: any, ...extra: any[]],void>} */
+    /** @type {sinon.SinonSpy<[message?: any, ...extra: any[]],void>} */
     let log;
-    /** @type {import('sinon').SinonSpy<[message?: any, ...extra: any[]],void>} */
+    /** @type {sinon.SinonSpy<[message?: any, ...extra: any[]],void>} */
     let dir;
     beforeEach(function () {
       log = sandbox.spy(console, 'log');

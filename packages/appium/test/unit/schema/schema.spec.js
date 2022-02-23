@@ -1,7 +1,7 @@
 // @ts-check
 
 import _ from 'lodash';
-import sinon from 'sinon';
+import { createSandbox } from 'sinon';
 import { DRIVER_TYPE, PLUGIN_TYPE } from '../../../lib/constants';
 import appiumConfigSchema from '../../../lib/schema/appium-config-schema';
 import { APPIUM_CONFIG_SCHEMA_ID } from '../../../lib/schema/arg-spec';
@@ -79,7 +79,7 @@ describe('schema', function () {
   let RoachHotelMap;
 
   beforeEach(function () {
-    sandbox = sinon.createSandbox();
+    sandbox = createSandbox();
 
     mocks = {
       'resolve-from': sandbox.stub(),

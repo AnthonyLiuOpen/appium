@@ -1,4 +1,4 @@
-import sinon from 'sinon';
+import { createSandbox } from 'sinon';
 import { finalizeSchema, resetSchema, SchemaFinalizationError } from '../../../lib/schema/schema';
 import { rewiremock } from '../../helpers';
 
@@ -14,8 +14,8 @@ describe('cli/schema-args', function () {
   let sandbox;
 
   beforeEach(function () {
-    sandbox = sinon.createSandbox();
-    ({toParserArgs} = rewiremock.proxy(() => require('../../lib/schema/cli-args')));
+    sandbox = createSandbox();
+    ({toParserArgs} = rewiremock.proxy(() => require('../../../lib/schema/cli-args')));
   });
 
   afterEach(function () {

@@ -42,6 +42,10 @@ module.exports = (wallaby) => {
       {
         instrument: false,
         pattern: './test/setup.js'
+      },
+      {
+        instrument: false,
+        pattern: './babel.config.json'
       }
     ],
     testFramework: 'mocha',

@@ -29,6 +29,7 @@ describe('Desired Capabilities', function () {
       return;
     }
 
+    /* istanbul ignore next */
     should.fail('error should have been thrown');
   });
 
@@ -46,6 +47,7 @@ describe('Desired Capabilities', function () {
       return;
     }
 
+    /* istanbul ignore next */
     should.fail('error should have been thrown');
   });
 
@@ -86,6 +88,7 @@ describe('Desired Capabilities', function () {
       return;
     }
 
+    /* istanbul ignore next */
     should.fail('error should have been thrown');
   });
 
@@ -113,6 +116,7 @@ describe('Desired Capabilities', function () {
       return;
     }
 
+    /* istanbul ignore next */
     should.fail('error should have been thrown');
   });
 
@@ -156,6 +160,7 @@ describe('Desired Capabilities', function () {
       return;
     }
 
+    /* istanbul ignore next */
     should.fail('error should have been thrown');
   });
 
@@ -261,6 +266,7 @@ describe('Desired Capabilities', function () {
       return;
     }
 
+    /* istanbul ignore next */
     should.fail('error should have been thrown');
   });
 
@@ -419,6 +425,7 @@ describe('Desired Capabilities', function () {
           e.should.be.instanceof(errors.SessionNotCreatedError);
           continue;
         }
+        /* istanbul ignore next */
         should.fail('error should have been thrown');
       }
     });
