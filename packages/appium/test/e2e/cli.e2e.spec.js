@@ -156,7 +156,7 @@ describe('CLI behavior', function () {
         });
 
         it('should not update package.json', async function () {
-          const newPkg = await await fs.readFile(appiumHomePkgPath, 'utf8');
+          const newPkg = await fs.readFile(appiumHomePkgPath, 'utf8');
           newPkg.should.equal(oldPkg);
         });
 
@@ -282,7 +282,6 @@ describe('CLI behavior', function () {
           ret.uiautomator2.installType.should.eql('npm');
           ret.uiautomator2.installSpec.should.eql('uiautomator2');
           const list = await runList(['--installed']);
-          // @ts-expect-error
           delete list.uiautomator2.installed;
           list.should.eql(ret);
         });
@@ -297,7 +296,6 @@ describe('CLI behavior', function () {
           ret.fake.installType.should.eql('npm');
           ret.fake.installSpec.should.eql('@appium/fake-driver');
           const list = await runList(['--installed']);
-          // @ts-expect-error
           delete list.fake.installed;
           list.should.eql(ret);
         });
@@ -310,7 +308,6 @@ describe('CLI behavior', function () {
           ret.fake.installType.should.eql('npm');
           ret.fake.installSpec.should.eql(installSpec);
           const list = await runList(['--installed']);
-          // @ts-expect-error
           delete list.fake.installed;
           list.should.eql(ret);
         });
@@ -327,7 +324,6 @@ describe('CLI behavior', function () {
           ret.fake.installType.should.eql('github');
           ret.fake.installSpec.should.eql('appium/appium-fake-driver');
           const list = await runList(['--installed']);
-          // @ts-expect-error
           delete list.fake.installed;
           list.should.eql(ret);
         });
@@ -344,7 +340,6 @@ describe('CLI behavior', function () {
           ret.fake.installType.should.eql('git');
           ret.fake.installSpec.should.eql(FAKE_DRIVER_DIR);
           const list = await runList(['--installed', '--json']);
-          // @ts-expect-error
           delete list.fake.installed;
           list.should.eql(ret);
         });
@@ -363,7 +358,6 @@ describe('CLI behavior', function () {
             'git+https://github.com/appium/appium-fake-driver',
           );
           const list = await runList(['--installed']);
-          // @ts-expect-error
           delete list.fake.installed;
           list.should.eql(ret);
         });
@@ -376,7 +370,6 @@ describe('CLI behavior', function () {
           ret.fake.installType.should.eql('local');
           ret.fake.installSpec.should.eql(FAKE_DRIVER_DIR);
           const list = await runList(['--installed']);
-          // @ts-expect-error
           delete list.fake.installed;
           list.should.eql(ret);
         });
