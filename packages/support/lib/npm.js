@@ -306,7 +306,7 @@ export const npm = new NPM();
  * @property {string} stdout - Stdout
  * @property {string} stderr - Stderr
  * @property {number?} code - Exit code
- * @property {any} json - JSON parsed from stdout
+ * @property {any} [json] - JSON parsed from stdout
  */
 
 /**
