@@ -12,6 +12,7 @@
     "firefoxos",
     "testing"
   ],
+  "homepage": "https://appium.io",
   "bugs": {
     "url": "https://github.com/appium/appium/issues"
   },
@@ -32,6 +33,9 @@
     "lib",
     "build"
   ],
+  "scripts": {
+    "dev": "gulp dev --no-notif"
+  },
   "dependencies": {
     "@appium/eslint-config-appium": "file:../eslint-config-appium",
     "@babel/core": "7.16.0",
@@ -93,6 +97,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://appium.io",
   "gitHead": "ec6a90a797d2dadb407922426be16efaec9def07"
 }
