@@ -4,7 +4,7 @@
 
 const path = require('path');
 const yaml = require('yaml');
-const { fs, mkdirp, util } = require('@appium/support');
+const { fs, util } = require('@appium/support');
 const validate = require('validate.js');
 const Handlebars = require('handlebars');
 const _ = require('lodash');
