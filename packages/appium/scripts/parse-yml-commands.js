@@ -108,7 +108,7 @@ const appiumRanges = {
   mac: ['1.6.4'],
 };
 
-const rootFolder = fs.findRoot(__dirname);
+const rootFolder = path.join(__dirname, '..', '..', '..');
 
 // Create Handlebars helper that shows a version range
 Handlebars.registerHelper('versions', function versionHelper (object, name, driverName) {
