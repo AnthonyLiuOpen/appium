@@ -32,3 +32,4 @@ jobs:
           gh pr create \
             --title 'test auto PR' \
             --body 'This PR was created automatically by the workflow. It should be safe but there is no guarantee.'
+        shell: bash
